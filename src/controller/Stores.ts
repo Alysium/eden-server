@@ -1,4 +1,3 @@
-import {client} from "../constant/MongoConnectionConstants";
 import express from 'express';
 const router = express.Router();
 //connect functions to be callable via API

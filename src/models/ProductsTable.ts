@@ -9,7 +9,7 @@ const productsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    colors: [mongoose.ObjectId],
+    colorways: [mongoose.ObjectId],
     description: {
         type: String,
         required: true
