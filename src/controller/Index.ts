@@ -4,11 +4,7 @@ const router = express.Router();
 const products = require('./Products');
 
 router
-    .route('/mongo/products/:colorwayId')
-    .get(products.getColorwayProduct);
-
-router
-    .route('/mongo/products/:productId')
-    .get(products.getProduct);
+    .route('/productPage/:productId/:colorwayId')
+    .get(products.getProductPageData);
 
 module.exports = router;

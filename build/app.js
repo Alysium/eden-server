@@ -15,10 +15,6 @@ app.listen(port, function () {
 });
 var apiRouter = require('./controller/Index');
 app.use('/api', apiRouter);
-//api middleware
-//Note: May move all middle ware to own dedicated file in configuration
-var colorwayQuery = require('./controller/Products');
-app.use('/api/mongo/products', colorwayQuery);
 //Capture All 404 errors
 app.use(function (req, res, next) {
     res.status(404).send('Unable to find the requested resource!');
