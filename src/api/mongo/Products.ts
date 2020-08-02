@@ -39,7 +39,6 @@ export const getColorwayData = (colorwayId) => {
         } catch (error) {
             reject("Cannot get Colorway Data of ColorwayId")
         }
-
     })
 }
 
@@ -86,10 +85,10 @@ export const getColorwayInv = (colorwayId) => {
                 },
                 {
                     "$project": {
-                        "price": "$price",
-                        "salePrice": "$salePrice",
-                        "sale": "$sale",
-                        "sizes": "$sizes",
+                        "price": 1,
+                        "salePrice": 1,
+                        "sale": 1,
+                        "sizes": 1,
                         "store": "$storeLocationInfo.name",
                         "location": "$storeLocationInfo.location",
                         "address": "$storeLocationInfo.address"

@@ -19,7 +19,7 @@ APIs needed on the Product Page
  * @param req 
  * @param res 
  */
-async function getProductPageData(req, res) {
+async function getProductPageDataController(req, res) {
     const {colorwayId, productId} = req.params;
 
     await Promise.all([
@@ -38,5 +38,5 @@ async function getProductPageData(req, res) {
 }
 
 export {
-    getProductPageData
+    getProductPageDataController
 }

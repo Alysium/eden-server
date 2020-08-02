@@ -27,3 +27,14 @@ export const colorMap = {
     'Blue': 2,
     'Green': 3
 }
+
+
+export const colorwaySortMap = {
+    "initial": 0,
+    "new": 1,
+    "best_sellers": 2,
+    "alphabetical": 3,
+    "price_low_high": 4,
+    "price_high_low": 5,
+    
+}

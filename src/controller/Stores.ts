@@ -1,18 +1,25 @@
-import express from 'express';
-const router = express.Router();
-//connect functions to be callable via API
-
-const stores = require('../models/StoresTable');
+import {getAllStoreLocations} from '../api/mongo/Stores'
 
 /**
- * Get all stores
- * @endpoint /api/mongo/stores/
+ * Controller to get All Store Locations
+ * @route /storeLocationListingPage
+ * @param req 
+ * @param res 
  */
-router.get('/', function(req, res){
-    console.log("Stores app seen");
-    stores.find()
-        .then(result => res.json(result))
-});
+async function getAllStoreLocationsController(req, res){
+    const getStoreLocationsPromise = async() => {
+        var result = await(getAllStoreLocations());
+    }
 
+    getStoreLocationsPromise()
+        .then(function(result) {
+            res.json(result)
+        })
+        .catch(function(error){
+            res.status(404).send('Cannot get all Store Locations')
+        })
+}
 
-module.exports = router;
+export {
+    getAllStoreLocationsController
+}

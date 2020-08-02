@@ -34,3 +34,4 @@ connect();
 require('./ProductsTable');
 require('./ColorwaysTable');
 require('./InventoriesTable');
+//require('./storeLocationsTable');
