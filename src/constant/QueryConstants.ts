@@ -13,7 +13,7 @@ export const brandMap = {
     'Vans': 2
 } as const;
 
-export const styleMap = {
+export const typeMap = {
     'Casual': 0,
     'Running': 1,
     'Basketball': 2,

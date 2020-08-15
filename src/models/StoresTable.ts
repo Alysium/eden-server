@@ -9,7 +9,12 @@ const storesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    locations: [mongoose.ObjectId],
+    storeLocations: [mongoose.ObjectId],
+    logoThumbnailUrl: {
+        type: String,
+        required: true,
+    },
+    websiteUrl: String
 
 });
 

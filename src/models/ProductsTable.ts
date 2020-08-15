@@ -13,7 +13,10 @@ const productsSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    brand: Number,
+    type: Number,
+    gender: Number
 });
 
 module.exports = mongoose.model('products', productsSchema);

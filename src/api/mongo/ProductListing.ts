@@ -24,16 +24,15 @@ export const getAllColorways = () => {
 
 /**
  * Gets colorways based on filtering
- * @note will need to implement indexing for optimization + searching
+ * @note will need to implement indexing for optimization + searching, location querying for inventory based on proximity
  * @param colors: Array
  * @param brands: Array of ints
- * @param styles: Array of ints
+ * @param types: Array of ints
  * @param genders: Array of ints
  * @param sort: String
  * @param numItems: int: Number of items per page
  */
-export const getFilteredColorways = (colors, brands, styles, genders, sort, page, numItems) => {
-
+export const getFilteredColorways = (colors, brands, types, genders, sort, page, numItems) => {
     var aggregation:Object[] = [
         {
             "$lookup": {
@@ -42,6 +41,8 @@ export const getFilteredColorways = (colors, brands, styles, genders, sort, page
                     "colorwayId": "$_id"
                 },
                 "pipeline": [
+                    //Potentially add: Distance Locator
+
                     { //match invenotry that has the same colorwayId
                         "$match": {
                             "$expr": {
@@ -82,7 +83,7 @@ export const getFilteredColorways = (colors, brands, styles, genders, sort, page
                 "name": 1,
                 "product": 1,
                 "brand": 1,
-                "style": 1,
+                "type": 1,
                 "gender": 1,
                 "pictures": 1,
                 "avgPrice": "$avgPrice.avgCost" 
@@ -99,14 +100,15 @@ export const getFilteredColorways = (colors, brands, styles, genders, sort, page
     if (colors.length != 0){
         filters.push({"colors": {"$in": colors}})
     }
-    if (styles.length != 0){
-        filters.push({"style": {"$in": styles}})
+    if (types.length != 0){
+        filters.push({"type": {"$in": types}})
     }
     if (genders.length != 0){
         filters.push({"gender": {"$in": genders}})
     }   
     if (filters.length != 0){
         match["$and"] = filters
+        //insert into first stage of the aggregation query
         aggregation.unshift({"$match": match})
     }
 

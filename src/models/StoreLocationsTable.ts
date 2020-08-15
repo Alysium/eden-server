@@ -5,10 +5,6 @@ import mongoose from 'mongoose';
 
 //create schema
 const storeLocationsSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
     address: {
         type: String,
         required: true,
@@ -17,7 +13,7 @@ const storeLocationsSchema = new mongoose.Schema({
         type: mongoose.ObjectId,
         required: true,
     },
-    geoLocation: {
+    coordinates: {
         type: {
             type: String,
             enum: ['Point'],

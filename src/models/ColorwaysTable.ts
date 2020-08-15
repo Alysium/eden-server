@@ -14,10 +14,12 @@ const colorwaysSchema = new mongoose.Schema({
         required: true,
     },
     brand : Number,
-    style: Number,
+    type: Number,
     gender: Number,
     product: mongoose.ObjectId,
     colors: [Number],
+    pictures: [String],
+    thumbnailUrl: String
 });
 
 module.exports = mongoose.model('colorways', colorwaysSchema);

@@ -6,12 +6,8 @@ const stores = require('./Stores')
 const productListing = require('./ProductListing')
 
 router
-    .route('/productPage/:productId/:colorwayId')
+    .route('/productPage/:productId/')
     .get(products.getProductPageDataController);
-
-router
-    .route('/storeLocationListingPage')
-    .get(stores.getAllStoreLocationsController)
 
 router
     .route('/colorways/all')
@@ -20,5 +16,16 @@ router
 router
     .route('/colorways/filter')
     .get(productListing.getFilteredColorwaysController)
+
+
+router
+    .route('/storeLocations')
+    .get(stores.getAllStoreLocationsController)
+
+
+router
+    .route('/storeLocations/filter')
+    .get(stores.getFilteredStoreLocationsController)
+
 
 module.exports = router;

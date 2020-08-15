@@ -1,4 +1,4 @@
-import {getAllStoreLocations} from '../api/mongo/Stores'
+import {getAllStoreLocations, getFilteredStoreLocations} from '../api/mongo/Stores'
 
 /**
  * Controller to get All Store Locations
@@ -20,6 +20,32 @@ async function getAllStoreLocationsController(req, res){
         })
 }
 
+
+/**
+ * Controller to get Filtered store locations based on a couple filters:
+ *  - geographical location
+ *  - store franchise
+ * @param req 
+ * @param res 
+ * @reqParams lat: float, long: float, stores: string[arr]
+ */
+async function getFilteredStoreLocationsController(req, res) {
+    const {lat, long, distance, stores} = req.query
+    const getFilteredStoreLocationsPromise = async() => {
+        return await(getFilteredStoreLocations(lat, long, distance, stores))
+    }
+
+    getFilteredStoreLocationsPromise()
+        .then(function(result){
+            res.send(result)
+        })
+        .catch(function(error){
+            res.status(404).send('Cannot get all filtered Store Locations: ' + error)
+        })
+}
+
+
 export {
-    getAllStoreLocationsController
+    getAllStoreLocationsController,
+    getFilteredStoreLocationsController
 }

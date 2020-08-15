@@ -3,11 +3,9 @@
  */
 export {}
 const mongoose = require('mongoose');
+const config = require('../config')
 
-
-const userName = "EDEN_user";
-const userPwd = "EDEN_user_123";
-const dbName = "Prototype"
+const {db: {userName, userPwd, dbName}} = config
 const mongoURL = `mongodb+srv://${userName}:${userPwd}@eden-db.3sxhh.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
 const connect = () => {
@@ -34,4 +32,5 @@ connect();
 require('./ProductsTable');
 require('./ColorwaysTable');
 require('./InventoriesTable');
-//require('./storeLocationsTable');
+require('./StoreLocationsTable');
+require('./StoresTable');

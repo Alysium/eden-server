@@ -3,11 +3,11 @@
  */
 const express = require("express");
 const bodyParser = require("body-parser");
+const config = require("./config")
+require('./models/db');
 
-require('./models/Db');
-
+const {app: {port}} = config
 const app = express();
-const port = 3000;
 
 //middleware additions
 app.use(bodyParser.json());
