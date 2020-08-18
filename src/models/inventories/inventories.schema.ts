@@ -2,10 +2,10 @@
  * Schema design for products Table
  */
 import mongoose from 'mongoose';
-
+const {ObjectId} = mongoose.Schema.Types
 //create schema
-const inventoriesSchema = new mongoose.Schema({
-    colorway: mongoose.ObjectId,
+const InventoriesSchema = new mongoose.Schema({
+    colorway: ObjectId,
     price: {
         type: Number,
         required: true
@@ -17,7 +17,7 @@ const inventoriesSchema = new mongoose.Schema({
     },
     sizes: Object,
     storeLocation: {
-        type: mongoose.ObjectId,
+        type: ObjectId,
         required: true
     },
     newRelease: Boolean
@@ -30,5 +30,4 @@ Potential changes to database:
     -> this makes it easier to look for "products around 10km from my current location or a set location"
 
 */
-
-module.exports = mongoose.model('inventories', inventoriesSchema);
+export default InventoriesSchema

@@ -2,14 +2,14 @@
  * Schema design for stores Table
  */
 import mongoose from 'mongoose';
-
+const {ObjectId} = mongoose.Schema.Types
 //create schema
 const storesSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
     },
-    storeLocations: [mongoose.ObjectId],
+    storeLocations: [ObjectId],
     logoThumbnailUrl: {
         type: String,
         required: true,
@@ -18,4 +18,4 @@ const storesSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('stores', storesSchema);
+export default storesSchema

@@ -1,10 +1,13 @@
-const ObjectId = require('mongodb').ObjectId; 
 
-//model required
-const colorways = require('../../models/ColorwaysTable');
-const products = require('../../models/ProductsTable');
-const inventories = require('../../models/InventoriesTable');
-const stores = require('../../models/StoresTable')
+import mongoose from 'mongoose';
+const {ObjectId} = mongoose.Types;
+
+//models used
+const products = mongoose.model('products');
+const colorways = mongoose.model('colorways');
+const inventories = mongoose.model('inventories');
+const stores = mongoose.model('stores');
+
 
 /**
  * Gets all data needed for getting info from Product Page

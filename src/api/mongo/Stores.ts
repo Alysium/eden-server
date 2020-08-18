@@ -1,4 +1,5 @@
-const storeLocations = require("../../models/StoreLocationsTable")
+import mongoose from 'mongoose'
+const storeLocations = mongoose.model('storeLocations');
 
 export const getAllStoreLocations = () => {
     return new Promise ((resolve, reject) => {

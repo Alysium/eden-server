@@ -2,9 +2,9 @@
  * Schema design for colorways Table
  */
 const mongoose = require("mongoose");
-
+const {ObjectId} = mongoose.Schema.Types
 //create schema
-const colorwaysSchema = new mongoose.Schema({
+const ColorwaysSchema = new mongoose.Schema({
     colorwayName: {
         type: String,
         default: "",
@@ -16,10 +16,10 @@ const colorwaysSchema = new mongoose.Schema({
     brand : Number,
     type: Number,
     gender: Number,
-    product: mongoose.ObjectId,
+    product: ObjectId,
     colors: [Number],
     pictures: [String],
     thumbnailUrl: String
 });
 
-module.exports = mongoose.model('colorways', colorwaysSchema);
+export default ColorwaysSchema;

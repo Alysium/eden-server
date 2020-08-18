@@ -5,9 +5,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var express = require("express");
 var bodyParser = require("body-parser");
-require('./models/Db');
+var config = require("./config");
+require('./models/db');
+var port = config.app.port;
 var app = express();
-var port = 3000;
 //middleware additions
 app.use(bodyParser.json());
 app.listen(port, function () {
