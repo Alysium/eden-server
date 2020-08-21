@@ -1,5 +1,8 @@
-const colorways = require('../../models/ColorwaysTable');
+
+import mongoose from 'mongoose'
 import {colorwaySortMap} from "../../constant/QueryConstants"
+
+const colorways = mongoose.model('colorways');
 
 /**
  * Gets all the colorways

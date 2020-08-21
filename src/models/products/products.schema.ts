@@ -1,15 +1,12 @@
-/**
- * Schema design for products Table
- */
 import mongoose from 'mongoose';
-
+const {ObjectId} = mongoose.Schema.Types
 //create schema
-const productsSchema = new mongoose.Schema({
+const ProductsSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
     },
-    colorways: [mongoose.ObjectId],
+    colorways: [ObjectId],
     description: {
         type: String,
         required: true
@@ -18,5 +15,4 @@ const productsSchema = new mongoose.Schema({
     type: Number,
     gender: Number
 });
-
-module.exports = mongoose.model('products', productsSchema);
+export default ProductsSchema

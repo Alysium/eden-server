@@ -1,6 +1,10 @@
-const inventories = require('../../models/InventoriesTable');
+//const inventories = require('../../models/InventoriesTable');
 
-const ObjectId = require('mongoose')
+import mongoose from 'mongoose'
+const {ObjectId} = mongoose.Types;
+const inventories = mongoose.model('inventories')
+
+
 
 
 export const getAllStoreLocationInv = (storeLocId) => {

@@ -2,7 +2,7 @@
  * Schema design for store location Table
  */
 import mongoose from 'mongoose';
-
+const {ObjectId} = mongoose.Schema.Types
 //create schema
 const storeLocationsSchema = new mongoose.Schema({
     address: {
@@ -10,7 +10,7 @@ const storeLocationsSchema = new mongoose.Schema({
         required: true,
     },
     store: {
-        type: mongoose.ObjectId,
+        type: ObjectId,
         required: true,
     },
     coordinates: {
@@ -26,4 +26,4 @@ const storeLocationsSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('storeLocations', storeLocationsSchema);
+export default storeLocationsSchema

@@ -5,6 +5,8 @@ export {}
 const mongoose = require('mongoose');
 const config = require('../config')
 
+
+
 const {db: {userName, userPwd, dbName}} = config
 const mongoURL = `mongodb+srv://${userName}:${userPwd}@eden-db.3sxhh.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
@@ -29,8 +31,17 @@ mongoose.connection.on('disconnected', () => {
 connect();
 
 //Mongo Models Used
-require('./ProductsTable');
-require('./ColorwaysTable');
-require('./InventoriesTable');
-require('./StoreLocationsTable');
-require('./StoresTable');
+/*
+import {ColorwaysModel} from "./colorways/colorways.model"
+import {InventoriesModel} from "./inventories/inventories.model"
+import {ProductsModel} from "./products/products.model"
+import {StoreLocationsModel} from "./storeLocations/storeLocations.model"
+import {StoresModel} from "./stores/stores.model"
+*/
+
+
+require('./products/products.model');
+require('./colorways/colorways.model');
+require('./inventories/inventories.model');
+require('./storeLocations/storeLocations.model');
+require('./stores/stores.model');
